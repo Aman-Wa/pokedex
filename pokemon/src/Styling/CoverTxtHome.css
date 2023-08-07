@@ -1,0 +1,56 @@
+.cover-text {
+    height: 557px;
+    position: relative;
+    width: 516px;
+  }
+  
+  .cover-text .find-all-your {
+    color: #000000;
+    font-family: "Karla-Bold", Helvetica;
+    font-size: 72px;
+    font-weight: 400;
+    left: 1px;
+    letter-spacing: 4px;
+    line-height: normal;
+    position: absolute;
+    top: -1px;
+    width: 506px;
+  }
+  
+  .cover-text .text-wrapper {
+    font-weight: 700;
+  }
+  
+  .cover-text .span {
+    font-family: var(--h-1-font-family);
+    font-size: var(--h-1-font-size);
+    font-style: var(--h-1-font-style);
+    font-weight: var(--h-1-font-weight);
+    letter-spacing: var(--h-1-letter-spacing);
+    line-height: var(--h-1-line-height);
+  }
+  
+  .cover-text .you-can-know-the {
+    color: #000000;
+    font-family: var(--h-2-font-family);
+    font-size: var(--h-2-font-size);
+    font-style: var(--h-2-font-style);
+    font-weight: var(--h-2-font-weight);
+    left: 1px;
+    letter-spacing: var(--h-2-letter-spacing);
+    line-height: var(--h-2-line-height);
+    position: absolute;
+    top: 315px;
+    width: 515px;
+  }
+  
+  .cover-text .btn-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 491px !important;
+  }
+  
+  .cover-text .design-component-instance-node {
+    left: 36px !important;
+  }
+  
