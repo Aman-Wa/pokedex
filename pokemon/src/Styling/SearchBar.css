@@ -1,0 +1,59 @@
+
+    
+.label {
+   
+    border: 0px none;
+    height: 41px;
+    width: 861px;
+  }
+  
+  .label .element-pokemons-for-you {
+    color: #000000;
+    font-family: "Karla-Regular", Helvetica;
+    font-size: 35px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 3px;
+    line-height: normal;
+    margin-top: 166px;
+    margin-left: 290px;
+    margin-right: 289px;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .label .text-wrapper {
+    color: #000000;
+    font-family: "Karla-Regular", Helvetica;
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 3px;
+  }
+  
+  .label .span {
+    font-family: "Karla-Bold", Helvetica;
+    font-weight: 700;
+  }
+  
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .search-results {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .search-results li {
+    margin: 5px 0;
+  }

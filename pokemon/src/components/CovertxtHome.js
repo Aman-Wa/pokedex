@@ -1,8 +1,11 @@
 import React from 'react';
 import '../Styling/CoverTxtHome.css';
-export const CoverText = ({ className }) => {
+import { Link } from 'react-router-dom';
+
+
+export const CoverText = () => {
     return (
-      <div className={`cover-text ${className}`}>
+      <div className="cover-text">
         <p className="find-all-your">
           <span className="text-wrapper">Find</span>
           <span className="span">
@@ -13,7 +16,12 @@ export const CoverText = ({ className }) => {
           <span className="text-wrapper">Pokemon</span>
         </p>
         <p className="you-can-know-the">You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
-        <button className="btn-instance" grassClassName="design-component-instance-node" text="See pokemons" />
+        <div className="btnDiv">
+        <button className="btn-instance"  ><Link to="/pokedex">See Pokemons</Link></button>
+       </div>
+        {/* <div className="big-image">
+      <img src="https://www.freepnglogos.com/uploads/pokemon-symbol-logo-png-31.png "alt="Image" />
+    </div> */}
       </div>
     );
   };

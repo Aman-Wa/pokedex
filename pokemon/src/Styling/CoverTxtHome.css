@@ -1,7 +1,9 @@
 .cover-text {
-    height: 557px;
+    margin-left: 157px;
+    max-width: 100%;
+    border: 1px black;
     position: relative;
-    width: 516px;
+    background-color: rgba(245, 219, 19, 1);
   }
   
   .cover-text .find-all-your {
@@ -53,4 +55,27 @@
   .cover-text .design-component-instance-node {
     left: 36px !important;
   }
+  .big-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px;
+  }
   
+  .big-image img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .btn-instance{
+    background-color: rgba(115, 214, 119, 1);
+    width: 231px;
+    height: 66px;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+  .btn-instance a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: #000000;
+    font-size: large;
+  }

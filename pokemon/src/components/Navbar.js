@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
       <nav className="navbar">
         <div className="navbar-left">
-          <img src="pokemon\src\assets\images\Logo.png" alt="Logo" />
+          <img src="https://www.freepnglogos.com/uploads/black-pokemon-logo-transparent-27.png" alt="Logo" />
         </div>
         <div className="navbar-right">
           <ul>
