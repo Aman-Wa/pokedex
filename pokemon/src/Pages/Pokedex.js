@@ -44,6 +44,7 @@ import Footer from '../components/Footer';
         <SearchBar />
         <PokemonCard pokemon={pokeData} loading={loading} infoPokemon={poke => setPokeDex(poke)} />
         {/* <Footer/> */}
+        { loading ? <div>Loading...</div> : <PokemonCard pokemon={pokeData}/> }
       </div>
     )
   }
