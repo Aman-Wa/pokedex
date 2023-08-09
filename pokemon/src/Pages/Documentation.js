@@ -5,9 +5,7 @@ import Footer from '../components/Footer'
 function Documentation() {
   return (
     <div>
-        <Navbar />
-      docs
-      <Footer/>
+      
     </div>
   )
 }

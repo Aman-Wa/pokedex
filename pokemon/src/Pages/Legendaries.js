@@ -5,9 +5,7 @@ import Footer from '../components/Footer'
 function Legendaries() {
   return (
     <div>
-        <Navbar/>
-      legend
-      <Footer/>
+        
     </div>
   )
 }
