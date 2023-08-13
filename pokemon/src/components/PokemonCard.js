@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import '../Styling/PokemonCard.css'
 
-const Card = ({ title, imageUrl, spec1, spec2 }) => (
+const Card = ({ title, imageUrl, attack, spec2, type, experience }) => (
     <div className="card">
       <div className="card-content">
         <div className="card-text">
           <h2>{title}</h2>
-          <p>Attack: {spec1}</p>
+          <p>Attack: {attack}</p>
           <p>Defense: {spec2}</p>
+          <p>Type: {type}</p>
+          <p>Experience: {experience}</p>
         </div>
         <div className="card-image">
           <img src={imageUrl} alt={title} />
@@ -20,7 +22,7 @@ const Card = ({ title, imageUrl, spec1, spec2 }) => (
 const CardRow = ({ cards }) => (
   <div className="card-row">
     {cards.map((card, index) => (
-      <Card key={index} title={card.name} imageUrl={card.sprites.front_default} spec1={card.base_experience} spec2={card.weight}/>
+      <Card key={index} title={card.name} imageUrl={card.img} spec1={card.attack} spec2={card.spec2} type={card.type} experience={card.experience}/>
     ))}
   </div>
 );
@@ -30,7 +32,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => (
     {Array.from({ length: totalPages }, (_, index) => (
       <button
         key={index}
-        onClick={() => onPageChange(index + 1)}
+        onClick={() => {
+          console.log("Clicked page:", index + 1);
+          onPageChange(index + 1)
+        }}
         className={currentPage === index + 1 ? 'active' : ''}
       >
         {index + 1}
@@ -41,6 +46,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => (
 
 const PokemonCard = ({pokemon,loading,infoPokemon}) => {
 
+// console.log(pokemon);
   const itemsPerPage = 9;
   const totalPages = Math.ceil(pokemon.length / itemsPerPage);
 
