@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import '../Styling/PokemonCard.css'
 
-const Card = ({ title, imageUrl, attack, spec2, type, experience }) => (
+const Card = ({ title, imageUrl, attack, defense, type, experience }) => (
     <div className="card">
       <div className="card-content">
         <div className="card-text">
           <h2>{title}</h2>
           <p>Attack: {attack}</p>
-          <p>Defense: {spec2}</p>
+          <p>Defense: {defense}</p>
           <p>Type: {type}</p>
           <p>Experience: {experience}</p>
         </div>
@@ -22,7 +22,7 @@ const Card = ({ title, imageUrl, attack, spec2, type, experience }) => (
 const CardRow = ({ cards }) => (
   <div className="card-row">
     {cards.map((card, index) => (
-      <Card key={index} title={card.name} imageUrl={card.img} spec1={card.attack} spec2={card.spec2} type={card.type} experience={card.experience}/>
+      <Card key={index} title={card.name} imageUrl={card.img} attack={card.attack} defense={card.defense} type={card.type} experience={card.experience}/>
     ))}
   </div>
 );

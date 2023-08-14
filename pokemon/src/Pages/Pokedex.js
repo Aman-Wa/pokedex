@@ -10,16 +10,9 @@ import data from '../components/data.js'
     const [pokeData, setPokeData] = useState([]);
     const [filteredPokemons, setFilteredPokemons] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    // const [typeFilters, setTypeFilters] = useState([]);
-    // const [attackFilter, setAttackFilter] = useState('');
-    // const [experienceFilter, setExperienceFilter] = useState('');
+    
   
   // const [status, setStatus] = useState("loading");
-  // const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
-  // const [nextUrl, setNextUrl] = useState();
-  // const [prevUrl, setPrevUrl] = useState();
-  // const [pokeDex, setPokeDex] = useState();
- 
   
 
   // async function fetchData(search, filter) {
@@ -40,135 +33,53 @@ import data from '../components/data.js'
     if (storedData) {
       const parsedData = JSON.parse(storedData);
       setPokeData(parsedData);
-      console.log('Stored Data:', parsedData); 
+      // console.log('Stored Data:', parsedData); 
       setFilteredPokemons(parsedData);
     // console.log('filteredPokemons:', parsedData); 
     }
   }, []);
-  
-  
-  
- 
-  const handleSearchAndFilters = (query) => {
-    setSearchQuery(query);
-    if (query === '') {
-      setFilteredPokemons(pokeData); 
-    } else {
-      const updatedFilteredPokemons = pokeData.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredPokemons(updatedFilteredPokemons);
-    }
-  };
-  
-
-  // const pokeFun = async () => {
-  //   setLoading(true)
-  //   const res = await axios.get(url);
-  //   setNextUrl(res.data.next);
-  //   setPrevUrl(res.data.previous);
-  //   getPokemon(res.data.results)
-  //   setLoading(false)
-  // }
-  // const getPokemon = async (res) => {
-  //   res.map(async (item) => {
-  //     const result = await axios.get(item.url)
-  //     setPokeData(state => {
-  //       state = [...state, result.data]
-  //       state.sort((a, b) => a.id > b.id ? 1 : -1)
-  //       return state;
-  //     })
-  //   })
-  // }
-  // useEffect(() => {
-  //   pokeFun();
-  //   console.log(pokeData);
-  // }, [url])
-
   // useEffect(() => {
   //   fetchData("", "");
   //   // console.log(pokeData.data)
   // }, [])
 
 // console.log(filteredPokemons);
+const handleSearchAndFilters = (query, filters) => {
+  setSearchQuery(query);
+  const updatedFilteredPokemons = pokeData.filter(pokemon => {
+  
+    const matchesSearch = pokemon.name.toLowerCase().includes(query.toLowerCase());
 
-//   useEffect(() => {
-//     applyFilters();
-//   }, [typeFilters, attackFilter, experienceFilter, searchQuery]);
+    
+    const matchesType = filters.types.length === 0 || filters.types.includes(pokemon.type.toLowerCase());
 
-//   const applyFilters = () => {
-//     let updatedFilteredPokemons = pokeData;
+    
+    const attack = filters.attack;
+    const matchesAttack = (attack === 'below100' && pokemon.attack < 100) ||
+      (attack === '100to200' && pokemon.attack >= 100 && pokemon.attack <= 200) ||
+      (attack === 'above200' && pokemon.attack > 200) ||
+      attack === '';
 
-//     // Apply type filter
-//     if (typeFilters.length > 0) {
-//       updatedFilteredPokemons = updatedFilteredPokemons.filter(pokemon =>
-//         typeFilters.some(type => pokemon.type.toLowerCase() === type.toLowerCase())
-//       );
-//     }
+    
+    const experience = filters.experience;
+    const matchesExperience = (experience === 'below100' && pokemon.experience < 100) ||
+      (experience === '100to200' && pokemon.experience >= 100 && pokemon.experience <= 200) ||
+      (experience === 'above200' && pokemon.experience > 200) ||
+      experience === '';
 
-//     // Apply attack filter
-//     if (attackFilter !== '') {
-//       const minAttack = parseInt(attackFilter, 10);
-//       updatedFilteredPokemons = updatedFilteredPokemons.filter(pokemon =>
-//         pokemon.attack >= minAttack
-//       );
-//     }
+    return matchesSearch && matchesType && matchesAttack && matchesExperience;
+  });
 
-//     // Apply experience filter
-//     if (experienceFilter !== '') {
-//       const minExperience = parseInt(experienceFilter, 10);
-//       updatedFilteredPokemons = updatedFilteredPokemons.filter(pokemon =>
-//         pokemon.experience >= minExperience
-//       );
-//     }
+  setFilteredPokemons(updatedFilteredPokemons);
+};
 
-//     // Apply search filter
-//     if (searchQuery !== '') {
-//       updatedFilteredPokemons = updatedFilteredPokemons.filter(pokemon =>
-//         pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
-//       );
-//     }
 
-//     setFilteredPokemons(updatedFilteredPokemons);
-//   };
-
-//   const handleTypeFilterChange = selectedTypes => {
-//     setTypeFilters(selectedTypes);
-//   };
-
-//   const handleAttackFilterChange = selectedAttack => {
-//     setAttackFilter(selectedAttack);
-//   };
-
-//   const handleExperienceFilterChange = selectedExperience => {
-//     setExperienceFilter(selectedExperience);
-//   };
-
-//   const handleSearchAndFilters = (query, filters) => {
-//     setSearchQuery(query);
-//     setTypeFilters(filters.types);
-//     setAttackFilter(filters.attack);
-//     setExperienceFilter(filters.experience);
-//   };
-
-//   return (
-//     <div>
-//       <SearchBar
-//         onSearchAndFilters={handleSearchAndFilters}
-//       />
-//       <PokemonCard pokemon={filteredPokemons} />
-//     </div>
-//   );
-// }
-    return (
-      <div>
-        <SearchBar
-        onSearch={handleSearchAndFilters}
-        // onFilters={handleSearchAndFilters}
-      />
-       <PokemonCard pokemon={filteredPokemons} /> 
-      </div>
-    )
-    }
+return (
+  <div>
+   <SearchBar onSearchAndFilters={handleSearchAndFilters} />
+      <PokemonCard pokemon={filteredPokemons} />
+  </div>
+);
+}
  
   export default Pokedex;
