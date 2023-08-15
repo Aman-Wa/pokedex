@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-      <nav className="navbar">
+      <div className="navbar">
         <div className="navbar-left">
-          <img src="https://www.freepnglogos.com/uploads/black-pokemon-logo-transparent-27.png" alt="Logo" />
+          <img src="https://cdn.icon-icons.com/icons2/3914/PNG/512/pokemon_logo_icon_248810.png" alt="Logo" />
         </div>
         <div className="navbar-right">
           <ul>
@@ -16,7 +16,7 @@ const Navbar = () => {
             <li><Link to="/documentation">Documentation</Link></li>
           </ul>
         </div>
-      </nav>
+      </div>
     );
   };
   

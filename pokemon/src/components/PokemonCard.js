@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import '../Styling/PokemonCard.css'
+import PopupCard from './PopupCard';
 
-const Card = ({ title, imageUrl, attack, defense, type, experience }) => (
-    <div className="card">
+
+
+const Card = ({ title, imageUrl, attack, defense, type, experience, onClick }) => (
+    <div className="card" onClick={onClick}>
       <div className="card-content">
         <div className="card-text">
           <h2>{title}</h2>
@@ -19,10 +22,10 @@ const Card = ({ title, imageUrl, attack, defense, type, experience }) => (
   );
   
 
-const CardRow = ({ cards }) => (
+const CardRow = ({ cards, onCardClick }) => (
   <div className="card-row">
     {cards.map((card, index) => (
-      <Card key={index} title={card.name} imageUrl={card.img} attack={card.attack} defense={card.defense} type={card.type} experience={card.experience}/>
+      <Card key={index} title={card.name} imageUrl={card.img} attack={card.attack} defense={card.defense} type={card.type} experience={card.experience} onClick={() => onCardClick(card)}/>
     ))}
   </div>
 );
@@ -44,7 +47,17 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => (
   </div>
 );
 
-const PokemonCard = ({pokemon,loading,infoPokemon}) => {
+const PokemonCard = ({pokemon}) => {
+
+  const [popupPokemon, setPopupPokemon] = useState(null);
+
+  const handleCardClick = (pokemon) => {
+    setPopupPokemon(pokemon);
+  };
+
+  const handleClosePopup = () => {
+    setPopupPokemon(null);
+  };
 
 // console.log(pokemon);
   const itemsPerPage = 9;
@@ -67,16 +80,21 @@ const PokemonCard = ({pokemon,loading,infoPokemon}) => {
   }
 
   return (
+
     <div className="app">
+      
      
       {rows.map((row, index) => (
-        <CardRow key={index} cards={row} />
+        <CardRow key={index} cards={row} onCardClick={handleCardClick} />
       ))}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+       {popupPokemon && (
+        <PopupCard pokemon={popupPokemon} onClose={handleClosePopup} />
+      )}
     </div>
   );
 };

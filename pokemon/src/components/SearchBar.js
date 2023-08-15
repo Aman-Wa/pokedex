@@ -34,8 +34,11 @@ const SearchBar = ({ onSearchAndFilters }) => {
   
 
   return (
+    <div style={{display:"flex",}}>
+     <p style={{textAlign:"center",fontSize:"3rem"}}>800 <span style={{fontWeight:"bolder"}}>pokemons</span> for you to choose from your favourite</p>
     <div className="search-filter">
-      <input
+     
+      <input className='search-input'
         type="text"
         placeholder="Search Pokémon"
         value={searchInput}
@@ -69,6 +72,7 @@ const SearchBar = ({ onSearchAndFilters }) => {
         </select>
       </div>
       <button onClick={handleSearchAndFilters}>Apply Filters</button>
+    </div>
     </div>
   );
 };

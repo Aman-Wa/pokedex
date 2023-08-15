@@ -1,11 +1,11 @@
 .navbar {
-  overflow:hidden;
+    overflow:hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color:#F5DB13;
-    color: #fff;
-    box-shadow: 1px 1px 5px grey;
+    border: grey;
+    position: relative;
 
   }
   
