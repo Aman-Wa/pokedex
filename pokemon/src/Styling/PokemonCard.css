@@ -5,21 +5,20 @@
     margin: 20px;
   }
   
-  /* Styling for the card */
   .card {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 5px;
-    width: calc(33.33% - 10px); /* 3 cards per row */
+    width: calc(33.33% - 10px); /
   }
   
-  /* Styling for the card row */
+  
   .card-row {
     display: flex;
     justify-content: space-between;
   }
   
-  /* Styling for the pagination buttons */
+  
   .pagination {
     margin-top: 20px;
   }
