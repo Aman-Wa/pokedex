@@ -1,6 +1,3 @@
-const saveDataToLocal = (data) => {
-    localStorage.setItem('data', JSON.stringify(data));
-  };
 const data= [
  {
     "name":"bulbasaur",
@@ -220,4 +217,4 @@ const data= [
     "experience":"238",
  }
   ]
-  saveDataToLocal(data);
+  export default data;

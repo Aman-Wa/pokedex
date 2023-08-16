@@ -4,11 +4,11 @@ import SearchBar from '../components/SearchBar'
 import PokemonCard from '../components/PokemonCard';
 import axios from 'axios';
 import Footer from '../components/Footer';
-import data from '../components/data.js'
+import pokeData from '../components/data.js'
 
   function Pokedex() {
-    const [pokeData, setPokeData] = useState([]);
-    const [filteredPokemons, setFilteredPokemons] = useState([]);
+    // const [pokeData, setPokeData] = useState([]);
+    const [filteredPokemons, setFilteredPokemons] = useState(pokeData);
     const [searchQuery, setSearchQuery] = useState('');
     
   
@@ -28,16 +28,16 @@ import data from '../components/data.js'
   //   }
   // }
 
-  useEffect(() => {
-    const storedData = localStorage.getItem('data');
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      setPokeData(parsedData);
-      // console.log('Stored Data:', parsedData); 
-      setFilteredPokemons(parsedData);
-    // console.log('filteredPokemons:', parsedData); 
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedData = localStorage.getItem('data');
+  //   if (storedData) {
+  //     const parsedData = JSON.parse(storedData);
+  //     setPokeData(parsedData);
+  //     // console.log('Stored Data:', parsedData); 
+  //     setFilteredPokemons(parsedData);
+  //   // console.log('filteredPokemons:', parsedData); 
+  //   }
+  // }, []);
   // useEffect(() => {
   //   fetchData("", "");
   //   // console.log(pokeData.data)
